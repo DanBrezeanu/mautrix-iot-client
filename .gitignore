@@ -1,0 +1,13 @@
+*.log
+*.xls
+*.err*
+dist/
+env/
+**/__pycache__
+build/
+*.spec
+*.conf
+device.yaml
+*.db
+*txt*
+.vscode

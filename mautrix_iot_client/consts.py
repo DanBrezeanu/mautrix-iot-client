@@ -1,0 +1,2 @@
+REQUEST_CLI_TYPE = "cli"
+REQUEST_COMMAND_TYPE = "request"

@@ -1,0 +1,39 @@
+# Homeserver details
+appservice:
+    # The addresses of the appservices that can use this device.
+    addresses:
+      - http://192.168.1.3:35328
+
+# Device settings
+device:
+    # !! CHANGE THIS
+    api_key: 3v8a5jTT2X@G6M
+    commands:
+        # Command name
+      - name: "TURN_ON_LIGHT"
+        # Define custom arguments (e.g. temperature, state, etc.) (Optional)
+        args:
+          - status
+        # Command human readable alias. Can be used in chat
+        # for a more humanized experience
+        alias: "Turn on the lights to brightness $status"
+        # Accept command if the chat message contains the alias
+        # E.g. "Turn on the lights, please"
+        allow_contains_alias: True
+        description: "Turn on the lights in the living room."
+        command:
+          type: request
+          method: POST
+          host: localhost:5000
+          # Define HTTP headers for the request (Optional)
+          headers:
+            Authorization: Bearer mytoken
+          # Define a body for the request (Optional)
+          body:
+            format: '{"mystatus": "$status"}'
+            type: json
+          # Define a format for the request
+          format: "http://$host?status=$status"
+        
+          
+
